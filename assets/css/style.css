@@ -54,6 +54,11 @@ body {
     font-family: 'Suravaram', serif;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 /*
 @media  screen and (max-device-width : 599px) {
     
@@ -87,4 +92,8 @@ body {
     position: absolute;
     left: 15%;
     bottom: 1%;
+}
+
+.navigation-list a {
+	-webkit-tap-highlight-color: transparent;
 }
