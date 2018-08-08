@@ -97,3 +97,10 @@ a {
 .navigation-list a {
 	-webkit-tap-highlight-color: transparent;
 }
+
+.short-divider { 
+	border-bottom: 1px solid #82afd3;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: .75em;
+}
