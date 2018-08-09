@@ -67,8 +67,13 @@ a {
 
 /*default style for screens under 600px*/
 
+/**
+
+Navigation Styles
+
+**/
 .navigation {
-    height: 220px;
+    height: 280px;
     font-size: 75px;
 }
 
@@ -84,6 +89,10 @@ a {
     position: relative;
 }
 
+.navigation-list li.active {
+	color: #76B1B3;
+}
+/*
 .navigation-list li.active:after {
     content: '';
 	width: 70%;
@@ -93,14 +102,36 @@ a {
     left: 15%;
     bottom: 1%;
 }
+*/
 
 .navigation-list a {
 	-webkit-tap-highlight-color: transparent;
 }
 
 .short-divider { 
-	border-bottom: 1px solid #82afd3;
-	width: 80%;
+	border-bottom: 1px solid #76B1B3;
+	width: 65%;
 	margin: 0 auto;
 	margin-top: .75em;
+}
+
+/** 
+
+About page styles
+
+**/
+
+.about-header {
+	font-size: 8.5em;
+	padding: .2em 0 0 0em;
+	color: #76B1B3;
+	text-align: center;
+}
+
+.about-image-holder img {
+	max-width: 50%;
+	height: auto;
+	display: block;
+	margin: auto;
+	border-radius: 15px;
 }
