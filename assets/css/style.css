@@ -82,9 +82,10 @@ About page styles
 Book page styles
 
 **/
-#books-per-year {
+.graph-holder {
+  margin: 0 auto;
   height: auto;
-  width: 100%; }
+  width: 90%; }
 
 /**
 
