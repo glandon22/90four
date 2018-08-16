@@ -100,6 +100,15 @@ var pagesPerYear = new Chart(pages, {
                     return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
             }
+        },
+        legend: {
+            display: false
+        },
+        title: {
+            display: true,
+            text: "Number of Pages Read Annually",
+            fontSize: 30,
+            fontColor: "#273434"
         }
     }
 });
