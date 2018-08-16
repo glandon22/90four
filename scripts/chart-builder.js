@@ -39,7 +39,7 @@ var booksPerYear = new Chart(ctx, {
                 ticks: {
                     fontSize: 30,
                     autoSkip: true,
-                    maxTicksLimit: 3,
+                    maxTicksLimit: 5,
                     fontColor: "#273434"
                 },
                 gridLines: {
@@ -60,7 +60,7 @@ var booksPerYear = new Chart(ctx, {
 });
 
 var pagesPerYear = new Chart(pages, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
         labels: [ '2014', '2015', '2016', '2017', '2018' ],
         datasets: [{
@@ -73,14 +73,7 @@ var pagesPerYear = new Chart(pages, {
                 'rgba(118, 177, 179, .2)',
                 'rgba(118, 177, 179, .2)'
             ],
-            borderColor: [
-                'rgba(118, 177, 179, 1)',
-                'rgba(118, 177, 179, 1)',
-                'rgba(118, 177, 179, 1)',
-                'rgba(118, 177, 179, 1)',
-                'rgba(118, 177, 179, 1)'
-            ],
-            borderWidth: 1
+            borderWidth: 0
         }]
     },
     options: {
@@ -88,9 +81,28 @@ var pagesPerYear = new Chart(pages, {
             yAxes: [{
                 ticks: {
                     beginAtZero:true,
+                    fontSize: 40,
+                    fontColor: "#273434"
+                },
+                gridLines: {
+                    color: "#273434"
+                },
+                categoryPercentage: 1.0,
+                barPercentage: .95,
+            }],
+            xAxes: [{
+                ticks: {
+                    fontSize: 30,
+                    autoSkip: true,
+                    maxTicksLimit: 4,
+                    fontColor: "#273434",
+                    max: 15000,
                     callback: function(value, index, values) {
                         return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     }
+                },
+                gridLines: {
+                    color: "#273434"
                 }
             }]
         },
