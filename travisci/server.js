@@ -4,6 +4,7 @@ const KEY = configVars.KEY;
 const util = require('util');
 const _async = require('async');
 const moment = require('moment');
+const ncp = require('ncp').ncp;
 moment().format();
 
 const fs = require('fs');
@@ -17,7 +18,6 @@ function cleanGoodReadsResponse(booksArray) {
 		
 	//loop over response and only save the data points i need for each book
 	for (let i = 0; i < booksArray.length; i++) {
-
 		cleanedBooksArray.push({
 			title: booksArray[i]['book'][0]['title'][0],
 			author: booksArray[i]['book'][0]['authors'][0]['author'][0]['name'][0],
@@ -91,6 +91,37 @@ function createPagesPerYearGraph(masterBookData) {
 	console.log(chartData);
 	return chartData;
 }
+
+//make a build directory for travis to deploy
+fs.mkdirSync('../build');
+fs.mkdirSync('../build/assets');
+fs.mkdirSync('../build/html');
+fs.mkdirSync('../build/scripts');
+ncp("../assets", "../build/assets", function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('done!');
+});
+
+ncp("../html", "../build/html", function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('done!');
+});
+
+ncp("../scripts", "../build/scripts", function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('done!');
+});
+
+fs.rename('../index.html', '../build/index.html', (err) => {
+  if (err) throw err;
+  console.log('Rename complete!');
+});
 
 request.get(reqURLShelf, function(err, res, body) {
 	parseString(body, async function(err,res) {

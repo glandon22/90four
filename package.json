@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/glandon22/90four/issues"
   },
-  "homepage": "https://github.com/glandon22/90four#readme"
+  "homepage": "https://github.com/glandon22/90four#readme",
+  "dependencies": {
+    "ncp": "^2.0.0"
+  }
 }
