@@ -118,9 +118,9 @@ ncp("../scripts", "../build/scripts", function (err) {
  console.log('done!');
 });
 
-fs.rename('../index.html', '../build/index.html', (err) => {
+fs.copyFile('../index.html', '../build/index.html', (err) => {
   if (err) throw err;
-  console.log('Rename complete!');
+  console.log('copy complete!');
 });
 
 request.get(reqURLShelf, function(err, res, body) {
