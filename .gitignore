@@ -3,3 +3,5 @@
 *.png
 .sass-cache
 style.css.map
+configvars.js
+node_modules
