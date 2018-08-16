@@ -4,7 +4,7 @@
   "description": "build package for travis",
   "main": "server.js",
   "scripts": {
-    "test": "\"exit 0\""
+    "test": "echo \"No tests\" && exit 0"
   },
   "repository": {
     "type": "git",
