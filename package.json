@@ -1,0 +1,22 @@
+{
+  "name": "90four",
+  "version": "1.0.0",
+  "description": "build package for travis",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"exit 0\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glandon22/90four.git"
+  },
+  "keywords": [
+    "90four"
+  ],
+  "author": "G Wright",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glandon22/90four/issues"
+  },
+  "homepage": "https://github.com/glandon22/90four#readme"
+}
