@@ -1,39 +1,75 @@
+/**
+*
+*
+* IMPORT VARIABLES
+*
+**/
+
 const configVars = require('./configvars.js');
 let books = require('./books.js').books;
 const KEY = configVars.KEY;
+
+/**
+*
+*
+* IMPORT NPM PACKAGES
+*
+**/
+
 const util = require('util');
 const _async = require('async');
 const moment = require('moment');
 const ncp = require('ncp').ncp;
 moment().format();
-
-const fs = require('fs');
 const parseString = require('xml2js').parseString;
 const request = require('request');
-const reqURLShelf = 'https://www.goodreads.com/review/list/38233116.xml?v=2&per_page=100&page=2&sort=date_read&shelf=read&key=' + KEY;
+const fs = require('fs');
+
+/**
+*
+*
+* SAVE URL TO CALL GOODREADS
+*
+**/
+
+const reqURLShelf = 'https://www.goodreads.com/review/list/38233116.xml?v=2&per_page=20&page=1&sort=date_read&shelf=read&key=' + KEY;
+
+/**
+*
+*
+* FUNCTION DEFINITIONS
+*
+**/
 
 //pull in goodreads shitty xml object and extract the info that i want
 function cleanGoodReadsResponse(booksArray) {
-	var cleanedBooksArray = [];
-		
+	
+	let loadNewBooks = false;
 	//loop over response and only save the data points i need for each book
-	for (let i = 0; i < booksArray.length; i++) {
-		cleanedBooksArray.push({
-			title: booksArray[i]['book'][0]['title'][0],
-			author: booksArray[i]['book'][0]['authors'][0]['author'][0]['name'][0],
-			//some books do not have a page number associated from goodreads
-			//if this is the case, set pages to a generic 250
-			pages: booksArray[i]['book'][0]['num_pages'][0] !== '' ? booksArray[i]['book'][0]['num_pages'][0] : 250,
-			rating: booksArray[i]['rating'][0],
-			readMonth: moment(booksArray[i]['read_at'][0],"ddd MMM DD hh:mm:ss ZZ YYYY").format('MMMM'),
-			readYear: moment(booksArray[i]['read_at'][0],"ddd MMM DD hh:mm:ss ZZ YYYY").format('YYYY'),
-			bookLink: booksArray[i]['book'][0]['link'][0],
-			bookDescription: booksArray[i]['book'][0]['description'][0],
-			bookThumbnail: booksArray[i]['book'][0]['image_url'][0]
-		});
+	for (let i = booksArray.length - 1; i > 0; i--) {
+		//once load new books is set to true, the new books will be pushed into the new books object
+		if (loadNewBooks) {
+				books.push({
+				title: booksArray[i]['book'][0]['title'][0],
+				author: booksArray[i]['book'][0]['authors'][0]['author'][0]['name'][0],
+				//some books do not have a page number associated from goodreads
+				//if this is the case, set pages to a generic 250
+				pages: booksArray[i]['book'][0]['num_pages'][0] !== '' ? booksArray[i]['book'][0]['num_pages'][0] : 250,
+				rating: booksArray[i]['rating'][0],
+				readMonth: moment(booksArray[i]['read_at'][0],"ddd MMM DD hh:mm:ss ZZ YYYY").format('MMMM'),
+				readYear: moment(booksArray[i]['read_at'][0],"ddd MMM DD hh:mm:ss ZZ YYYY").format('YYYY'),
+				bookLink: booksArray[i]['book'][0]['link'][0],
+				bookDescription: booksArray[i]['book'][0]['description'][0],
+				bookThumbnail: booksArray[i]['book'][0]['image_url'][0]
+			});
+		}
+		//the following books are new and need to be added to the books variable
+		else if (booksArray[i]['book'][0]['title'][0] === books[books.length - 1]['title']) {
+			loadNewBooks = !loadNewBooks;
+		}
 	}
-	fs.writeFileSync('books2.txt', util.inspect(cleanedBooksArray, {showHidden: false, depth: null}));
-	return cleanedBooksArray;
+
+	return books;
 }
 
 //create a d3 array of abjects for books read per year linegraph
@@ -127,7 +163,7 @@ request.get(reqURLShelf, function(err, res, body) {
 	parseString(body, async function(err,res) {
 		const masterBookData = await cleanGoodReadsResponse(res.GoodreadsResponse['reviews'][0]['review']);
 		const booksPerYearGraphData = await createBooksPerYearGraph(masterBookData);
-		const pagesperYearGraphDaya = await createPagesPerYearGraph(masterBookData);
+		const pagesperYearGraphData = await createPagesPerYearGraph(masterBookData);
 	});
 	
 });
