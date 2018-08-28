@@ -6,10 +6,10 @@ var pages = document.getElementById("pages-per-year").getContext('2d');
 var booksPerYear = new Chart(ctx, {
 	type: 'horizontalBar',
     data: {
-        labels: [ '2014', '2015', '2016', '2017', '2018' ],
+        labels: 'books-labels',
         datasets: [{
             label: 'Books',
-            data: [ 1, 11, 38, 29, 21 ],
+            data: 'books-data',
             backgroundColor: [
                 'rgba(118, 177, 179, .2)',
                 'rgba(118, 177, 179, .2)',
@@ -62,10 +62,10 @@ var booksPerYear = new Chart(ctx, {
 var pagesPerYear = new Chart(pages, {
     type: 'horizontalBar',
     data: {
-        labels: [ '2014', '2015', '2016', '2017', '2018' ],
+        labels: 'pages-labels',
         datasets: [{
             label: 'Books',
-            data: [ 444, 3134, 14020, 8647, 6463 ],
+            data: 'pages-data',
             backgroundColor: [
                 'rgba(118, 177, 179, .2)',
                 'rgba(118, 177, 179, .2)',
