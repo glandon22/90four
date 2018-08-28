@@ -128,6 +128,10 @@ function createPagesPerYearGraph(masterBookData) {
 	return chartData;
 }
 
+function buildBookList(books) {
+	
+}
+
 //make a build directory for travis to deploy
 fs.mkdirSync('../build');
 fs.mkdirSync('../build/assets');
@@ -165,7 +169,7 @@ request.get(reqURLShelf, function(err, res, body) {
 		const booksPerYearGraphData = await createBooksPerYearGraph(masterBookData);
 		const pagesperYearGraphData = await createPagesPerYearGraph(masterBookData);
 		//write in the book data to che chart script
-		fs.readFile('../scripts/chart-builder.js', 'utf-8', function(err, data) {
+		fs.readFile('./chart-builder-travis.js', 'utf-8', function(err, data) {
 			if (err) throw err;
 				let updatedChart = data.replace(/\'books-labels\'/, JSON.stringify(booksPerYearGraphData.years));
 				updatedChart = updatedChart.replace(/\'books-data\'/, JSON.stringify(booksPerYearGraphData.books));
