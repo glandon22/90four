@@ -124,7 +124,7 @@ function createPagesPerYearGraph(masterBookData) {
 		chartData.years.push(year);
 		chartData.pages.push(pagesPerYearData[year]);
 	}
-	console.log(chartData);
+
 	return chartData;
 }
 
@@ -164,6 +164,18 @@ request.get(reqURLShelf, function(err, res, body) {
 		const masterBookData = await cleanGoodReadsResponse(res.GoodreadsResponse['reviews'][0]['review']);
 		const booksPerYearGraphData = await createBooksPerYearGraph(masterBookData);
 		const pagesperYearGraphData = await createPagesPerYearGraph(masterBookData);
+		//write in the book data to che chart script
+		fs.readFile('../scripts/chart-builder.js', 'utf-8', function(err, data) {
+			if (err) throw err;
+				let updatedChart = data.replace(/\'books-labels\'/, JSON.stringify(booksPerYearGraphData.years));
+				updatedChart = updatedChart.replace(/\'books-data\'/, JSON.stringify(booksPerYearGraphData.books));
+				updatedChart = updatedChart.replace(/\'pages-labels\'/, JSON.stringify(pagesperYearGraphData.years));
+				updatedChart = updatedChart.replace(/\'pages-data\'/, JSON.stringify(pagesperYearGraphData.pages));
+				fs.writeFile('../build/scripts/chart-builder.js', updatedChart, 'utf-8', function (err) {
+			    	if (err) throw err;
+			    	console.log('completed1');
+			    });
+			});
 	});
 	
 });
