@@ -1,0 +1,64 @@
+/** 
+
+Book page styles
+
+**/
+.graph-holder {
+	margin: 0 auto;
+	height: auto;
+	width: 90%;
+}
+
+#books-per-year {
+	
+}
+
+.book-list-holder {
+	height: auto;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.book-list {
+	width: 100%;
+	padding-top: 15px;
+}
+
+.book-entry {
+	height: 150px;
+	width: 100%;
+}
+
+.book-image {
+	display: inline-block;
+}
+
+.title-author {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 25px;
+	max-width: 60%;
+	overflow: scroll;
+}
+
+.book-title {
+	font-size: 60px;
+	padding-top: 15px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.book-author {
+	font-size: 40px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.stars {
+	display: inline-block;
+	vertical-align: top;
+	margin: 50px 0 0 30px; 
+	font-size: 35px;
+}
