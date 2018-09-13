@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: $main-background-color;
+    color: #273434;
+    font-family: 'Suravaram', serif;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}

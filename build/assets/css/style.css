@@ -1,0 +1,172 @@
+/**
+
+Doc Variables
+
+**/
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html, body {
+  height: 100%; }
+
+body {
+  background-color: #f3f3f3;
+  color: #273434;
+  font-family: 'Suravaram', serif; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+/** 
+
+About page styles
+
+**/
+.about-header {
+  font-size: 8.5em;
+  padding: .2em 0 0 0em;
+  color: #76B1B3;
+  text-align: center; }
+
+.about-image-holder img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+  border-radius: 15px; }
+
+/** 
+
+Book page styles
+
+**/
+.graph-holder {
+  margin: 0 auto;
+  height: auto;
+  width: 90%; }
+
+.book-list-holder {
+  height: auto;
+  width: 90%;
+  margin: 0 auto; }
+
+.book-list {
+  width: 100%;
+  padding-top: 15px; }
+
+.book-entry {
+  height: 150px;
+  width: 100%; }
+
+.book-image {
+  display: inline-block;
+  width: 10.5%; }
+
+.title-author {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 25px;
+  width: 60%;
+  overflow: scroll; }
+
+.book-title {
+  font-size: 60px;
+  padding-top: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.book-author {
+  font-size: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.stars {
+  display: inline-block;
+  vertical-align: top;
+  margin: 50px 0 0 30px;
+  font-size: 35px; }
+
+/**
+
+Navigation Styles
+
+**/
+.navigation {
+  height: 280px;
+  font-size: 75px; }
+
+.navigation-list li {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  padding-top: 25px;
+  position: relative; }
+
+.navigation-list li.active {
+  color: #76B1B3; }
+
+/*
+.navigation-list li.active:after {
+    content: '';
+	width: 70%;
+	height: 1px;
+	background: #273434;
+    position: absolute;
+    left: 15%;
+    bottom: 1%;
+}
+*/
+.navigation-list a {
+  -webkit-tap-highlight-color: transparent; }
+
+.short-divider {
+  border-bottom: 1px solid #76B1B3;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: .75em; }
+
+/*# sourceMappingURL=style.css.map */
