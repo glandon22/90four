@@ -10,7 +10,6 @@ Book page styles
 }
 
 #books-per-year {
-	
 }
 
 .book-list-holder {
@@ -31,13 +30,14 @@ Book page styles
 
 .book-image {
 	display: inline-block;
+	width: 10.5%;
 }
 
 .title-author {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 25px;
-	max-width: 60%;
+	width: 60%;
 	overflow: scroll;
 }
 
