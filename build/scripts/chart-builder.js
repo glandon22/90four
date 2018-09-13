@@ -4,7 +4,7 @@ var ctx = document.getElementById("books-per-year").getContext('2d');
 var pages = document.getElementById("pages-per-year").getContext('2d');
 
 var booksPerYear = new Chart(ctx, {
-    type: 'horizontalBar',
+	type: 'horizontalBar',
     data: {
         labels: ["2014","2015","2016","2017","2018"],
         datasets: [{
