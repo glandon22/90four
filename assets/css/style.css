@@ -101,13 +101,14 @@ Book page styles
   width: 100%; }
 
 .book-image {
-  display: inline-block; }
+  display: inline-block;
+  width: 10.5%; }
 
 .title-author {
   display: inline-block;
   vertical-align: top;
   margin-left: 25px;
-  max-width: 60%;
+  width: 60%;
   overflow: scroll; }
 
 .book-title {
