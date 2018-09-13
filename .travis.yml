@@ -4,6 +4,9 @@ branches:
 language: node_js
 node_js:
 - node
+cache:
+  directories:
+    - "node_modules"
 deploy:
   provider: s3
   access_key_id: AKIAJP5ZY6YD2DAFZSQA
@@ -11,5 +14,6 @@ deploy:
     secure: aGu6bmn1B5QOT0ckkvmIGQphI6pU2Ez5EfuWrqww4gYgweR3D9McL1AECK4j6ywI+VklBiAc6r8tv8IRGl45CV6viFeRQahwYhj6/hzCqGcEeXxVYsflmzJlLdeyyTiZIaOkfQwUnXSkoFXsyYrvIA4fJjhnAe295gVIMTI4axNdOFHzM1OqmzXCGeJALSkqkKLknyS48LRusCPZ/rtTzuifrT3h6lhNV0YFW5ImSe6qsmXzqt4pZl2hkitkZsdQKUJ51DevlqKm5c7SEWU50N3vGi6qj2a0+dBGW3KRg8hnhNIjmZKxB84qwd98h0JsiBUXZF1y4mX4P4VVyA9vaybOwlV5PuctLo7smlfc/LTT/B8Q0glaZGip6IPqq6ABLP9eKPuQgJ7JTkau98kjkt94qcsLpJ95fTdcdR1N9X9pzmZu0v57YJVVyIQHWcagEV2NEN4v/cjmSexIREpLzTUw5bfKgApDq3lWOUcxpckON1/Geslwc9IuKDR70sz26S/z2+1tlrhFFSkjmW5aWA9RyarKcXpq/QSNCG4BNcpqCjHcmx90ZtNo4uIVZucqC9CrO13/85UpIMaSA3vUQrP7uYo08RVeuH82+hEBIA3bBYxUN6zI3APmelD+jnL0QDa3qhwuetmgtuakvbk06Wo13cjYdhIvrSvDwxrefPc=
   bucket: georgify.org
   acl: public_read
+  local_dir: build
   on:
     repo: glandon22/90four
